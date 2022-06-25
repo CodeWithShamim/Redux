@@ -1,6 +1,6 @@
 const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
-const { createStore } = require("redux");
+import { createStore } from "redux";
 
 // state 
 const initialCounterState = {
@@ -31,7 +31,7 @@ const counterReducer = (state = initialCounterState, action) => {
                 count: state.count - 1
             };
         default:
-            state
+            return state
     }
 }
 
