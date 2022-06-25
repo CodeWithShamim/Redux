@@ -54,3 +54,5 @@ store.subscribe(() => {
 
 // dispatch 
 store.dispatch(incrementCounter())
+store.dispatch(incrementCounter())
+store.dispatch(incrementCounter())
