@@ -1,7 +1,25 @@
 import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import getTodos from "./services/actions/todosAction";
 
 function App() {
-  return <div className="App"></div>;
+  const { todos, isLoading, error } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTodos());
+  }, [dispatch]);
+
+  console.log(todos);
+
+  return (
+    <div className="App">
+      <h1>Todos: </h1>
+      {isLoading && <h1>Loading....</h1>}
+      {error && <h1>{error}</h1>}
+    </div>
+  );
 }
 
 export default App;

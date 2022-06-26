@@ -10,10 +10,11 @@ const getTodos = () => {
     dispatch({ type: GET_TODOS_REQUEST });
     try {
       const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
-      const data = res.json();
-      dispatch({ type: GET_TODOS_SUCCESS, payload: data });
+      dispatch({ type: GET_TODOS_SUCCESS, payload: res });
     } catch (error) {
       dispatch({ type: GET_TODOS_FAILED, payload: error?.message });
     }
   };
 };
+
+export default getTodos;
