@@ -1,7 +1,7 @@
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import getTodos from "./services/actions/todosAction";
+import { getTodos } from "./services/actions/todosAction";
 
 function App() {
   const { todos, isLoading, error } = useSelector((state) => state);
@@ -11,11 +11,16 @@ function App() {
     dispatch(getTodos());
   }, [dispatch]);
 
-  console.log(todos);
+  console.log(todos?.data);
 
   return (
     <div className="App">
-      <h1>Todos: </h1>
+      {todos?.data?.map((todo) => (
+        <div key={todo.id}>
+          <h1>{todo.id}</h1>
+          <h1>{todo.title}</h1>
+        </div>
+      ))}
       {isLoading && <h1>Loading....</h1>}
       {error && <h1>{error}</h1>}
     </div>

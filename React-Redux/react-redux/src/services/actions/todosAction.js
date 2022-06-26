@@ -5,7 +5,7 @@ import {
   GET_TODOS_SUCCESS,
 } from "../constants/todosConstant";
 
-const getTodos = () => {
+export const getTodos = () => {
   return async (dispatch) => {
     dispatch({ type: GET_TODOS_REQUEST });
     try {
@@ -16,5 +16,3 @@ const getTodos = () => {
     }
   };
 };
-
-export default getTodos;
