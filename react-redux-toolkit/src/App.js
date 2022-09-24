@@ -4,6 +4,7 @@ import PostsView from "./features/posts/PostsView";
 
 function App() {
   return (
+    // update 
     <div className="App">
       <CounterView />
       <PostsView />
